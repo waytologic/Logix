@@ -6,7 +6,11 @@
 | `demo@arpino.in` | demo@123 |
 | `bhuvanselvan@outlook.com` | bhuvan@123t |
 
+
+
 > Right now, New user unable to register, due to free end-point limit
+
+
 
 > Thanks to **my-json-server.typicode.com**,  For supporting Free end-points
 
