@@ -6,6 +6,10 @@
 | `demo@arpino.in` | demo@123 |
 | `bhuvanselvan@outlook.com` | bhuvan@123t |
 
+> Right now, New user unable to register, due to free end-point limit
+
+> Thanks to my-json-server.typicode.com ,  For supporting Free end-points
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
 
 ## Development server
