@@ -198,3 +198,87 @@ form .signup-link a:hover {
   background: red;
   color: white;
 }
+.popup {
+  width: 380px;
+  background: #fff;
+  padding: 0 30px 30px;
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  color: #333;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.popup1 {
+  width: 380px;
+  background: #fff;
+  padding: 0 30px 30px;
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  color: #333;
+  visibility: hidden;
+  transition: 0.5s;
+}
+.popup.active {
+  visibility: visible;
+  top: 53%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup1.active {
+  visibility: visible;
+  top: 57%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup i {
+  width: 80px;
+  height: 80px;
+  background: green;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #fff;
+  line-height: 100px;
+  margin-top: -50px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+ .popup1 i {
+  width: 100px;
+  height: 100px;
+  background: rgb(255, 4, 4);
+  border-radius: 50%;
+  font-size: 50px;
+  color: #fff;
+  line-height: 100px;
+  margin-top: -50px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+.popup h2, .popup1 h2  {
+  font-size: 38px;
+  font-weight: 500;
+  margin: 30px 0 10px;
+}
+
+.popup1 button {
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px 0;
+  background: linear-gradient(-135deg, blue, red);
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+}

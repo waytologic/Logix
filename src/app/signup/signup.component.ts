@@ -93,7 +93,16 @@ export class SignupComponent implements OnInit {
         this.onReset();
         break;
       }else{
-        alert('Create new record  ');
+        //alert('Create new record  ');
+        this.loginvalid = false;
+          this.accounterror = true;
+          document.querySelector(".popup1")?.classList.add('active');
+          this.Invaliduser ="Access denied for new user"
+          document.querySelector(".closeBtn")?.addEventListener("click", () => {
+            document.querySelector(".popup1")?.classList.remove("active");
+            this.onReset();
+          });
+
       }
     }
 
