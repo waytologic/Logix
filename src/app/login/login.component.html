@@ -1,0 +1,52 @@
+<div class="containers">
+  <div class="wrapper">
+    <div class="title">Arpino </div>
+    <form [formGroup]="form" (ngSubmit)="login()">
+      <p [ngClass]=" loginvalid ? 'alert alert-success rounded' : 'alert alert-danger rounded'" *ngIf="accounterror" >
+        {{this.Invaliduser}}
+      </p>
+      <div class="box">
+        <input type="text" required  formControlName="email" />
+        <label> Email Address </label>
+        <div *ngIf="f['email'].touched && f['email'].invalid" class=" alert alert-danger" style="padding:5px;">
+          <div *ngIf="f['email'].errors && f['email'].errors['required'] && !this.accounterror ">Email is required.</div>
+          <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+      </div>
+      </div>
+      <div class="box">
+        <input type="password" required  formControlName="password" />
+        <label> Password </label>
+        <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger" style="padding:5px;">
+          <div *ngIf="f['password'].errors && f['password'].errors['required'] && !this.accounterror">Paasword is required.</div>
+          <div *ngIf="f['password'].errors && f['password'].errors['minlength']">Paasword should be min 6 character.</div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="checkbox">
+          <input type="checkbox" id="remember-me"  />
+          <label for="remember-me">Remember me</label>
+
+        </div>
+        <div class="pass-link">
+          <a >Forgot password?</a>
+        </div>
+      </div>
+      <div class="box">
+        <input type="submit" value="Login" />
+      </div>
+
+      <div class="signup-link">Not an user? <a routerLink="/signup" >Signup now</a></div>
+    </form>
+  </div>
+  <div class="popup shadow">
+    <i class="fas fa-check"></i>
+    <h2>Thank You!</h2>
+    <p> Welcome <b>{{user}}</b>!. you have successfully logged in your account </p>
+
+  </div>
+  <div class="popup1">
+    <i class="fa-solid fa-user-tie"></i>
+    <h2>{{Invaliduser}}</h2>
+    <button class="closeBtn" type="button">Pleae try again</button>
+  </div>
+</div>

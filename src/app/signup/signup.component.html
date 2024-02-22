@@ -1,0 +1,49 @@
+<div class="containers">
+  <div class="wrapper">
+    <div class="title">Arpino </div>
+    <form [formGroup]="forms" (ngSubmit)="submit()">
+      <p [ngClass]=" loginvalid ? 'alert alert-success rounded' : 'alert alert-danger rounded'" *ngIf="accounterror" >
+        {{this.Invaliduser}}
+      </p>
+      <div class="box">
+        <input type="text" required  formControlName="name" />
+        <label> Name </label>
+        <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+          <div *ngIf="f['name'].errors && f['name'].errors['required'] && !this.accounterror ">Name is required.</div>
+      </div>
+      </div>
+      <div class="box">
+        <input type="email" required  formControlName="email" />
+        <label> Email Address </label>
+        <div *ngIf="f['email'].touched && f['email'].invalid" class=" alert alert-danger">
+          <div *ngIf="f['email'].errors && f['email'].errors['required'] && !this.accounterror ">Email is required.</div>
+          <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+      </div>
+      </div>
+      <div class="box">
+        <input [type]=" showPassword ? 'text' : 'password' " required maxlength="15"  formControlName="password" />
+        <label> Password </label>
+          <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+            <div *ngIf="f['password'].errors && f['password'].errors['required'] && !this.accounterror">Password is required.</div>
+            <div *ngIf="f['password'].errors && f['password'].errors['minlength']">Password should be min 6 character.</div>
+        </div>
+        <span [ngClass]="switchclass ? 'fa-light fa-eye-slash' : 'fa-sharp fa-thin fa-eye'"  (click)='showHidePassword();' >&nbsp;</span>
+      </div>
+      <div class="box">
+        <input [type]=" showcPassword ? 'text' : 'password' "  required  formControlName="confirmPassword" />
+        <label> Confirm Password </label>
+        <div *ngIf="f['confirmPassword'].touched && f['confirmPassword'].invalid" class="alert alert-danger">
+          <div *ngIf="f['confirmPassword'].errors && f['confirmPassword'].errors['required'] && !this.accounterror">Confirm Password is required.</div>
+          <div *ngIf="f['confirmPassword'].errors && f['confirmPassword'].errors['minlength']">Password should be min 6 character.</div>
+      </div>
+        <span [ngClass]="switchCclass ? 'fa-light fa-eye-slash' : 'fa-sharp fa-thin fa-eye'"  (click)='showHidecPassword();' >&nbsp;</span>
+      </div>
+      <div class="row mt-5">
+        <div class="box">
+          <input type="submit" value="Register" />
+        </div>
+    </div>
+      <div class="signup-link">Back to login <a routerLink="/login" > Login</a></div>
+    </form>
+  </div>
+</div>

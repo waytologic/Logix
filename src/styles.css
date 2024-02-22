@@ -1,0 +1,511 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  transition: 0.3s linear;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: all .5s ease;
+  scroll-behavior: smooth;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --poppins: "Poppins", sans-serif;
+  --lato: "Lato", sans-serif;
+
+  --light: #f9f9f9;
+  --blue: #3c91e6;
+  --light-blue: #cfe8ff;
+  --grey: #005935;
+  --dark-grey: #aaaaaa;
+  --dark: #342e37;
+  --red: #db504a;
+  --yellow: #ffce26;
+  --light-green: #2af234;
+  --light-yellow: #fff2c6;
+  --orange: #fd7238;
+  --light-orange: #ffe0d3;
+}
+
+:host {
+  --bright-blue: oklch(51.01% 0.274 263.83);
+  --electric-violet: oklch(53.18% 0.28 296.97);
+  --french-violet: oklch(47.66% 0.246 305.88);
+  --vivid-pink: oklch(69.02% 0.277 332.77);
+  --hot-red: oklch(61.42% 0.238 15.34);
+  --orange-red: oklch(63.32% 0.24 31.68);
+
+  --green:lch(81.57% 142.74 151.76 / 77.24%)
+  --green-200: oklch(74.98% 0.3524 162.21);
+
+  --gray-900: oklch(19.37% 0.006 300.98);
+  --gray-700: oklch(36.98% 0.014 302.71);
+  --gray-400: oklch(70.9% 0.015 304.04);
+
+  --red-to-pink-to-purple-vertical-gradient: linear-gradient(
+    180deg,
+    var(--orange-red) 0%,
+    var(--vivid-pink) 50%,
+    var(--electric-violet) 100%
+  );
+
+  --bs-border-radius: 0.375rem;
+  --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+  --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
+    90deg,
+    var(--orange-red) 0%,
+    var(--vivid-pink) 50%,
+    var(--electric-violet) 100%
+  );
+
+  --pill-accent: var(--bright-blue);
+
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--grey);
+  overflow-x: hidden;
+}
+
+body.dark {
+  --light: #013608;
+  --grey: #060714;
+  --dark: #fbfbfb;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #d9d9d9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 5rem;
+}
+
+.head-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+ .head-title .left h1 {
+  font-size: 36px;
+  text-transform:capitalize;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.head-title .left .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+ .head-title .left .breadcrumb i {
+  color: var(--dark);
+}
+
+ .head-title .left .breadcrumb li a {
+  color: var(--dark-grey);
+  pointer-events: none;
+}
+
+.head-title .left .breadcrumb li a.active {
+  color: var(--blue);
+  pointer-events: unset;
+}
+
+ .head-title .download-btn {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 36px;
+  --pill-accent: var(--electric-violet);
+  transition: background 0.3s ease;
+  font-family: var(--inter-font);
+  background: color-mix(in srgb, var(--pill-accent) 5%, var(--blue));
+  color: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  background: var(--grey);
+  z-index: 20001;
+  overflow: hidden;
+  scrollbar-width: none;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  padding: 2px;
+  width:100%;
+  height:25px;
+  font-weight: bold;
+  line-height: 25px;
+}
+.dark .footer{
+  background: #213a2c;
+  color: var(--light-green);
+}
+
+main .table-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 24px;
+  width: 100%;
+  color: var(--dark);
+}
+
+main .table-data > div {
+  border-radius: 20px;
+  background: var(--light);
+  padding: 24px;
+  overflow-x: auto;
+}
+
+.table-data .head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.table-data .head h3 {
+  margin-right: auto;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.table-data .head i {
+  cursor: pointer;
+}
+
+main .table-data .order {
+  flex-grow: 1;
+  flex-basis: 500px;
+}
+
+.table-data .order table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-data .order table th {
+  padding-bottom: 12px;
+  font-size: 13px;
+  text-align: left;
+  border-bottom: 1px solid var(--grey);
+}
+
+.table-data .order table td {
+  padding: 16px 0;
+}
+
+.table-data .order table td:first-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 6px;
+}
+
+.table-data .order table td img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+main .table-data .order table tr:hover {
+  background: var(--grey);
+}
+
+main .table-data .order table tr td .status {
+  font-size: 10px;
+  padding: 6px 16px;
+  color: var(--light);
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.table-data .order table tr td .status.pending {
+  background: var(--orange);
+}
+
+.table-data .order table tr td .status.process {
+  background: var(--yellow);
+}
+
+main .table-data .order table tr td .status.complete {
+  background: var(--blue);
+}
+
+.todo {
+  flex-grow: 1;
+  flex-basis: 300px;
+}
+
+.todo .todo-list {
+  width: 100%;
+}
+
+main .todo .todo-list li {
+  width: 100%;
+  margin-bottom: 16px;
+  background: var(--grey);
+  border-radius: 10px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main .todo .todo-list li i {
+  cursor: pointer;
+}
+
+.todo .todo-list li.completed {
+  border-left: 10px solid var(--blue);
+}
+.dark .todo .todo-list li.completed {
+  border-left: 10px solid var(--blue);
+     border-top: 1px solid #fefefe;
+    border-bottom: 1px solid #3a3636;
+}
+.todo .todo-list li.not-completed {
+  border-left: 10px solid var(--orange);
+}
+.dark.todo .todo-list li.not-completed {
+  border-left: 10px solid var(--orange);
+      border-top: 1px solid #fefefe;
+    border-bottom: 1px solid #3a3636;
+}
+
+main .todo .todo-list li:last-child {
+  margin-bottom: 0;
+}
+
+
+.content main .box-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.content main .box-info li {
+  padding: 24px;
+  background: var(--light);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.content main .box-info li i {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content main .box-info li:nth-child(1) i {
+  background: var(--light-orange);
+  color: var(--orange);
+}
+
+.content main .box-info li:nth-child(2) i {
+  background: var(--light-blue);
+  color: var(--blue);
+
+}
+
+.content main .box-info li:nth-child(3) i {
+  background: var(--light-yellow);
+  color: var(--yellow);
+}
+
+.content main .box-info li .text h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.content main .box-info li .text p {
+  color: var(--dark);
+}
+
+.menu {
+  display: block;
+  position: relative;
+  cursor: pointer;
+
+}
+
+
+
+.menu-dropdown {
+  min-width: 100%;
+  padding: 18px 0;
+  position: absolute;
+  left:-68px;
+  margin-top:10px;
+  background: var(--light);
+  z-index: 100;
+  transition:
+    0.5s padding,
+    0.5s background;
+}
+
+
+.menu-dropdown:after {
+  content: "";
+  display: block;
+  height: 0;
+  border-top: 5px solid #ebebeb;
+  border-left: (var(--menu_WIDTH) / 2) solid transparent;
+  border-right: (var(--menu_WIDTH)/ 2) solid transparent;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: -1;
+  transition: 0.5s border-top;
+}
+
+.dark.menu-dropdown:after {
+  content: "";
+  display: block;
+  height: 0;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right:0;
+  z-index: 1;
+  transition: 0.5s border-top;
+}
+.menu:not(:hover) > .menu-dropdown {
+  padding: 0;
+  /* background: #1407d2; */
+  z-index: -1;
+}
+
+
+
+.menu-dropdown > * {
+  overflow: hidden;
+  height: 30px;
+  padding: 5px 10px;
+  background: rgba(0,0,0,0);
+  white-space: nowrap;
+  transition:
+    0.5s height cubic-bezier(.73,.32,.34,1.5),
+    0.5s padding cubic-bezier(.73,.32,.34,1.5),
+    0.5s margin cubic-bezier(.73,.32,.34,1.5),
+    0.5s 0.2s color,
+    0.2s background-color;
+}
+
+.menu-dropdown > *:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+.menu:not(:hover) > .menu-dropdown > * {
+  visibility: hidden;
+  height: 0;
+  padding-top: 0;
+  padding-right: 5px;
+  padding-bottom: 0;
+  margin: 0;
+  color: rgba(25,25,25,0);
+  transition:
+    0.5s 0.1s height,
+    0.5s 0.1s padding,
+    0.5s 0.1s margin,
+    0.3s color,
+    0.6s visibility;
+  z-index: 99;
+}
+
+
+.content nav .notification .num {
+  position: absolute;
+  top: -8px;
+  right: -15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--light);
+  background: var(--red);
+  color: var(--light);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content nav .notification .num {
+  position: absolute;
+  top: -8px;
+  right: -15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--light);
+  background: var(--red);
+  color: var(--light);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .content nav .notification .num {
+  position: absolute;
+  top: -8px;
+  right: -15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--light);
+  color: #333;
+  background: var(--light-green);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
