@@ -1,0 +1,43 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "bhuvan",
+      "email": "bhuvanselvan@outlook.com",
+      "username": "bhuvan",
+      "password": "bhuvan@123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Selvan",
+      "email": "selvan1000bc@gmail.com",
+      "username": "selvan",
+      "password": "selvan@123",
+      "role": "NTuser"
+    },
+    {
+      "name": "Arjun",
+      "email": "arjun.ayyanar@arpino.in",
+      "password": "arjun@123",
+      "username": "arjun",
+      "role": "NTuser",
+      "id": 3
+    },
+    {
+      "name": "Demo",
+      "email": "demo@arpino.in",
+      "username": "demo",
+      "role": "NTuser",
+      "password": "demo@123",
+      "id": 4
+    }
+  ]
+}
