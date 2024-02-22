@@ -1,9 +1,10 @@
 # Logix
 > for login use this credentials 
+
 | Email | Password |
 | --- | --- |
 | `demo@arpino.in` | demo@123 |
-| `bhuvanselvan@outlook.com` | bhuvan@123t **haven't been** staged |
+| `bhuvanselvan@outlook.com` | bhuvan@123t |
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
 
