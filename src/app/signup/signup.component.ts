@@ -95,59 +95,22 @@ export class SignupComponent implements OnInit {
       }else{
         //alert('Create new record  ');
         this.loginvalid = false;
-          this.accounterror = true;
+          this.accounterror = true;      
+        this.myservice.Createuser(this.forms.value).subscribe((res) => {
+          //alert('Sucessfully registered');
+          this.onReset();
+          this.login();
+        })       
           document.querySelector(".popup1")?.classList.add('active');
           this.Invaliduser ="Access denied for new user"
           document.querySelector(".closeBtn")?.addEventListener("click", () => {
             document.querySelector(".popup1")?.classList.remove("active");
             this.onReset();
+            
           });
-
+           break;
       }
     }
-
-    // for (let item of this.allUser) {
-    //   if(this.forms.value.email == item['email'] ){
-    //     alert('Email Already Taken');
-    //     this.Invaliduser ="Already email account exit";
-    //     this.accounterror = true;
-    //     this.onReset();
-    //     break;
-    //   }else{
-    //     alert('Start creating record!!!');
-    //      this.loginvalid = true;
-    //      this.accounterror = false;
-    //      this.myservice.Createuser(this.forms.value).subscribe((res) => {
-    //         alert('Sucessfully registered');
-    //         this.onReset();
-    //         this.login();
-    //       })
-    //   }
-    // }
-    // this.myservice.getAll().subscribe((res) =>{
-    //   let data = res;
-    //   for (let item of this.allUser) {
-    //     if(this.forms.value.email == item['email'] ){
-    //       alert('Email Already Taken');
-    //       this.Invaliduser ="Already email account exit";
-    //       this.accounterror = true;
-    //       this.onReset();
-    //     }else{
-    //       alert('Start creating record!!!')
-    //       this.loginvalid = true;
-    //       this.accounterror = false;
-    //       this.myservice.Createuser(this.forms.value).subscribe((res) => {
-    //         alert('Sucessfully registered');
-    //         this.onReset();
-    //         this.login();
-    //       })
-    //       console.log(JSON.stringify(this.forms.value, null, 2));
-
-    //       this.Invaliduser =""
-    //     }
-    //   }
-
-    // })
 
   }
 
