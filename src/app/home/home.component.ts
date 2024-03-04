@@ -2,6 +2,7 @@ import { Component, HostListener,OnInit, } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras, RouterState } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Session } from 'inspector';
+import { StorageService } from '../services/storage.service';
 
 
 @Component({
@@ -24,10 +25,15 @@ export class HomeComponent implements OnInit {
   miniavator:any;
   avator:any;
   constructor(
-    private router:Router
+    private router:Router,
+    private storageService: StorageService
   ){}
   ngOnInit(): void {
-    this.user = sessionStorage.getItem('loggedUser');
+    //this.user = sessionStorage.getItem('loggedUser');
+    this.user = this.storageService.getUser();
+    if(this.user == '' || ' [object Object]' || null ){
+     this.logout();
+    }
     this.avator = this.user.substr(0, 2)
     this.Tennet = "arpino";
     localStorage.setItem('Tenant',this.Tennet.trim());
