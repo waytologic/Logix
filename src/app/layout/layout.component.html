@@ -1,38 +1,87 @@
 <main class="main">
   <div class="content">
-    <div class="login-container">
-      <button class="login-btn rounded" (click)="login()">Login</button>
-    </div>
-    <div>
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+    <header class="header">
+      <a href="#" class="logo"><i class="fa-duotone fa-a fa-fw fa-2x fa-flip" style="--fa-primary-color: #fff; --fa-secondary-color: #fff; --fa-secondary-opacity: 0.8;"></i> Arpino</a>
+
+      <div class="menu-btn" (click)="showlist()"></div>
+
+      <div class="nav">
+        <div class="logotext">
+         <span> <i class="fa-duotone fa-a fa-fw fa-2x fa-flip" style="--fa-primary-color: #fff; --fa-secondary-color: #fff; --fa-secondary-opacity: 0.8;"></i> Arpino</span>
+
+        </div>
+        <a routerLink="">Home</a>
+        <a routerLink="">Explore</a>
+        <a routerLink="" >Gallery</a>
+        <a routerLink="" >About</a>
+        <a routerLink="" >Contact</a>
       </div>
-    </div>
+    </header>
+
+    <section class="home">
+      <video class="active" src="../../assets/media/vid1.mp4" autoplay muted loop></video>
+      <video src="../../assets/media/vid2.mp4" autoplay muted loop></video>
+      <video src="../../assets/media/vid3.mp4" autoplay muted loop></video>
+
+      <div class="absolute w-full content w-100">
+        <div class="w-full">
+        <h1>explore the Programe <br /><span>Get Source code</span></h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi quis
+          quo quisquam officiis natus consectetur, eaque obcaecati tempore
+          officia! Magnam doloribus perferendis porro voluptatem fugit ex cum
+          debitis quisquam officia.
+        </p>
+        <!-- <div class="login-container">
+          <button class="text-2xl rounded login-btn" >Login</button>
+        </div> -->
+        <a routerLink="" (click)="login()" >Login</a>
+        <div class=" video-nav">
+          <div class="nav-item active"></div>
+          <div class="nav-item"></div>
+          <div class="nav-item"></div>
+        </div>
+      </div>
+        <div class="flex-1 hidden w-full">
+          <div class="pill-group ">
+            @for (item of [
+              { title: 'Explore the Docs', link: 'https://angular.dev' },
+              { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
+              { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
+              { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
+              { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
+            ]; track item.title) {
+              <a
+                class="pill"
+                [href]="item.link"
+                target="_blank"
+                rel="noopener"
+              >
+                <span>{{ item.title }}</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="14"
+                  viewBox="0 -960 960 960"
+                  width="14"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
+                  />
+                </svg>
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer icons">
+        <a (click)="options('twitter')"><i class="fab fa-twitter"></i></a>
+        <a (click)="options('instagram')"><i class="fab fa-instagram"></i></a>
+        <a (click)="options('fb')"><i class="fab fa-facebook-f"></i></a>
+      </div>
+
+
+    </section>
   </div>
 </main>
