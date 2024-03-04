@@ -93,22 +93,15 @@ export class SignupComponent implements OnInit {
         this.onReset();
         break;
       }else{
-        //alert('Create new record  ');
-        this.loginvalid = false;
-          this.accounterror = true;      
+        this.loginvalid = true;
+        this.accounterror = false;
         this.myservice.Createuser(this.forms.value).subscribe((res) => {
-          //alert('Sucessfully registered');
+          alert('Sucessfully registered');
           this.onReset();
           this.login();
-        })       
-          document.querySelector(".popup1")?.classList.add('active');
-          this.Invaliduser ="Access denied for new user"
-          document.querySelector(".closeBtn")?.addEventListener("click", () => {
-            document.querySelector(".popup1")?.classList.remove("active");
-            this.onReset();
-            
-          });
-           break;
+        })
+        break;
+
       }
     }
 

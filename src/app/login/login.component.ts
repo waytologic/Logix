@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup , FormBuilder, Validators, AbstractControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,10 @@ export class LoginComponent implements OnInit {
   loginvalid:any;
   Invaliduser:any;
   allUser:any;
+  role:any;
   user:any;
+  isLoggedIn = false;
+  isLoginFailed = false;
   form = new FormGroup({
     email : new FormControl(),
     password: new FormControl(),
@@ -27,6 +31,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router:Router,
     private myservice:UsersService,
+    private storageService: StorageService,
     private formBuilder:FormBuilder
   ){}
 
@@ -45,6 +50,10 @@ export class LoginComponent implements OnInit {
         ],
       }
     );
+    if (this.storageService.isLoggedIn()) {
+      this.isLoggedIn = true;
+      this.role = this.storageService.getUser().role;
+    }
   }
 
   getallusers(){
@@ -74,22 +83,28 @@ export class LoginComponent implements OnInit {
         if(this.form.value.email == item['email'] && this.form.value.password == item['password'] ){
           this.loginvalid = true;
           this.accounterror = false;
+          this.storageService.saveUser(item['name']);
           sessionStorage.setItem('loggedUser', item['name']);
           sessionStorage.setItem('emaildata', item['email']);
           document.querySelector(".popup")?.classList.add('active');
           document.querySelector(".popup1")?.classList.remove("active");
           this.user = sessionStorage.getItem('loggedUser');
           setTimeout(() => {
+            this.isLoginFailed = false;
+            this.isLoggedIn = true;
+            this.role = this.storageService.getUser().role;
             this.Invaliduser ="Login Sucess";
             console.log("Delayed for 1 second.");
             document.querySelector(".popup")?.classList.remove("active");
             document.querySelector(".popup1")?.classList.remove("active");
             this.router.navigate(['/home']);
+
           }, 2000);
           break;
         }else{
           this.loginvalid = false;
           this.accounterror = true;
+          this.isLoginFailed = true;
           document.querySelector(".popup1")?.classList.add('active');
           this.Invaliduser ="Invalid user account!"
           document.querySelector(".closeBtn")?.addEventListener("click", () => {
