@@ -35,7 +35,6 @@ export class LayoutComponent implements OnInit {
       setTimeout(function(){
 
 
-
       btn.addEventListener("click", () => {
         btns.forEach((item) => {
           item.classList.remove("active");
