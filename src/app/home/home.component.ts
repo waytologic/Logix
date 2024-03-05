@@ -31,9 +31,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     //this.user = sessionStorage.getItem('loggedUser');
     this.user = this.storageService.getUser();
-    if(this.user == '' && ' [object Object]' || null ){
-     this.logout();
-    }
     this.avator = this.user.substr(0, 2)
     this.Tennet = "arpino";
     localStorage.setItem('Tenant',this.Tennet.trim());
