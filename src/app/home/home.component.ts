@@ -24,15 +24,22 @@ export class HomeComponent implements OnInit {
   menus:any;
   miniavator:any;
   avator:any;
+  baseurl:any;
+  currentpage:any;
   constructor(
     private router:Router,
-    private storageService: StorageService
-  ){}
+    private storageService: StorageService,
+    private activatedRoute: ActivatedRoute
+
+  ){
+
+  }
   ngOnInit(): void {
     //this.user = sessionStorage.getItem('loggedUser');
     this.user = this.storageService.getUser();
+
     this.avator = this.user.substr(0, 2)
-    this.Tennet = "arpino";
+    this.Tennet = "home";
     localStorage.setItem('Tenant',this.Tennet.trim());
     document.documentElement.classList.add('dark');
     this.loadtheme();
@@ -41,6 +48,7 @@ export class HomeComponent implements OnInit {
       { id: 2 , url: this.Tennet+"/users" , page:"Users", icon:"fa-sharp fa-solid fa-user-tie" },
       // { id: 3 , url: "/login" , page:"Login" },
     ]
+
   }
 
   setactive(){
@@ -81,6 +89,18 @@ export class HomeComponent implements OnInit {
      // this.sideBar.classList.add("hide");
     }
 
+  }
+  go(url:any){
+    if(url == 'dashboard'){
+      this.router.navigate(['home/dashboard']);
+      this.setactive();
+      this.currentpage = "dashboard"
+    }else if(url == "cards"){
+      this.router.navigate(['home/cards']);
+      this.setactive();
+      this.currentpage = "cards"
+      localStorage.setItem('currentpage',this.Tennet.trim());
+    }
   }
   search(e:any){
     this.searchFrom = document.querySelector(".content nav form");

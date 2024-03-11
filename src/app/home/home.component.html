@@ -1,14 +1,14 @@
 <section class="sidebar ">
   <a class="logo">
     <i class="fa-sharp fa-thin fa-brain-circuit"></i>
-    <span class="text cursor-default">Logix</span>
+    <span class="cursor-default text">Logix</span>
   </a>
   <div class="userinfo">
-    <div class="flex text-center font-bold">
+    <div class="flex font-bold text-center">
       <div class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 mybg">
-        <span class="font-medium text-gray-600 dark:text-gray-300 uppercase">{{avator}}</span>
+        <span class="font-medium text-gray-600 uppercase dark:text-gray-300">{{avator}}</span>
     </div>
-      <p class="userdetail text-3xl font-bold p-1 mx-5"> {{user}}</p>
+      <p class="p-1 mx-5 text-3xl font-bold userdetail"> {{user}}</p>
     </div>
   </div>
   <ul class="side-menu top">
@@ -18,14 +18,14 @@
         <span class="text">{{item.page}}</span>
       </a>
     </li> -->
-    <li class="active"    >
-      <a routerLink="/dashboard" class="nav-link" (click)="setactive()" >
+    <li    >
+      <a class="nav-link" (click)="setactive();go('dashboard')" >
         <i class="fas fa-border-all"></i>
         <span class="text">Dashboard</span>
       </a>
     </li>
     <li  >
-      <a routerLink="/users" class="nav-link" (click)="setactive()" >
+      <a  class="nav-link" (click)="setactive();go('cards')" >
         <i class="fas fa-shopping-cart"></i>
         <span class="text">My users</span>
       </a>
@@ -90,7 +90,7 @@
         <a class="profile menu">
         <img src="../assets/image/profile.png" />
 
-           <ul class="menu-dropdown shadow">
+           <ul class="shadow menu-dropdown">
             <li>Welcome {{user}}</li>
             <li>Profile</li>
             <li>Settings</li>
@@ -119,6 +119,6 @@
   <router-outlet></router-outlet>
 </main>
 </section>
-<section class="footer shadow p-2">
+<section class="p-2 shadow footer">
 <div class="text"> <i class="fa fa-copyright" aria-hidden="true"></i> 2024. Arpino </div>
 </section>

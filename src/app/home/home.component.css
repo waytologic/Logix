@@ -96,6 +96,8 @@
   background: transparent;
   border-radius: 48px 0 0 48px;
   padding: 4px;
+  user-select: none;
+  cursor: pointer;
 }
 
 .sidebar .side-menu li.active {
